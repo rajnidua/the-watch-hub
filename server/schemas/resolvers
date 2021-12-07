@@ -51,5 +51,33 @@ const resolvers = {
       return { token, user };
     },
     
+savedWatchList: async (parent, { myWatchList }, context) => {
+      console.log("context is:");
+      console.log(context);
+      try {
+        if (context.user) {
+          const user = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { savedWatchList: myWatchList } },
+            { new: true, runValidators: true }
+          );
+          return user;
+        }
+      } catch (err) {
+        console.log(err);
+        throw new AuthenticationError("An unexpected error occured");
+      }
+    },
+     removeBook: async (parent, { imdbId }, context) => {
+      if (context.user) {
+        const user = await User.findOneAndUpdate(
+          { _id: context.user._id },
+
+          { $pull: { savedWatchList: { imdbId } } },
+          { new: true }
+        );
+        return user;
+      }
+    },
 };
 module.exports = resolvers;
