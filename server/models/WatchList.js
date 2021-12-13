@@ -24,11 +24,11 @@ const watchListSchema = new Schema({
     required: false,
   },
   plotType: {
-    type: string,
+    type: String,
     required: false,
   },
   returnType: {
-    type: string,
+    type: String,
     required: false,
   },
 });

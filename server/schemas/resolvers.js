@@ -11,13 +11,15 @@ const resolvers = {
     me: async (_, __, context) => {
       console.log(context.user);
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("savedWatchList");
+        return User.findOne({ _id: context.user._id }).populate(
+          "savedWatchList"
+        );
       }
     },
   },
 
   Mutation: {
-      addUser: async (parent, { username, email, password }) => {
+    addUser: async (parent, { username, email, password }) => {
       // First we create the user
       const user = await User.create({ username, email, password });
       // To reduce friction for the user, we immediately sign a JSON Web Token and log the user in after they are created
@@ -50,8 +52,8 @@ const resolvers = {
       // Return an `Auth` object that consists of the signed token and user's information
       return { token, user };
     },
-    
-savedWatchList: async (parent, { myWatchList }, context) => {
+
+    saveWatchList: async (parent, { myWatchList }, context) => {
       console.log("context is:");
       console.log(context);
       try {
@@ -68,7 +70,7 @@ savedWatchList: async (parent, { myWatchList }, context) => {
         throw new AuthenticationError("An unexpected error occured");
       }
     },
-     removeBook: async (parent, { imdbId }, context) => {
+    removeWatchList: async (parent, { imdbId }, context) => {
       if (context.user) {
         const user = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -79,5 +81,6 @@ savedWatchList: async (parent, { myWatchList }, context) => {
         return user;
       }
     },
+  },
 };
 module.exports = resolvers;
