@@ -10,70 +10,54 @@ const SearchBar = () => {
   const [errorMessage, setErrorMessage] = useState(false);
   const [loading, setLoading] = useState(true);
   const [searchBarData, setSearchBarData] = useState([]);
+  const [searchResponse, setSearchResponse] = useState([]);
 
-  const hideLoader = () => {
-    setLoading(false);
-  };
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
 
-  const showLoader = () => {
-    setLoading(true);
-  };
-
-  const handleInputChange = async (e) => {
-    const { name, value } = e.target;
-    setSearchInput(value);
-    showLoader();
+    if (!searchInput) {
+      return false;
+    }
 
     try {
-      console.log("search input inside try block is: " + value);
-      const response = await searchBarList(value);
-      setLoading(false);
-      hideLoader();
+      const response = await searchBarList(searchInput);
+      console.log(response);
 
-      setSearchBarData(response.data);
+      const items = response.data.Search;
+      console.log(items);
 
-      if (response.status !== 200) {
-        setErrorMessage(true);
-      }
+      const movieData = items.map((movie) => console.log(movie.Title));
+      /* console.log(movieData);
+      setSearchBarData(movieData); */
+      setSearchInput("");
     } catch (err) {
-      // console.log(err);
-      setErrorMessage(true);
+      console.log(err);
     }
   };
 
-  if (errorMessage) {
-    return <h1>Something went wrong!! Try Again!!</h1>;
-  }
   return (
     <div className="container">
       <div className="search-container">
         <FontAwesomeIcon icon={faSearch} />
-        <input
-          name="searchInput"
-          value={searchInput}
-          onChange={handleInputChange}
-          type="text"
-          size="lg"
-          data-testid="input-element"
-          placeholder="Search"
-          className="search-input"
-        />
+        <form onSubmit={handleFormSubmit}>
+          <input
+            name="searchInput"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            type="text"
+            size="lg"
+            data-testid="input-element"
+            placeholder="Search"
+            className="search-input"
+          />
+          <button type="submit">Button</button>
+        </form>
       </div>
-      <div className="result-container">
-        {loading ? (
-          <div className="show-loader">
-            <Loader
-              type="Puff"
-              color="#00BFFF"
-              height={100}
-              width={100}
-              timeout={3000} //3 secs
-            />
-          </div>
-        ) : (
-          <ShowList searchBarResult={searchBarData} />
-        )}
-      </div>
+      <h2>
+        {searchBarData.length
+          ? `Viewing ${searchBarData.length} results:`
+          : "Search for a movie to begin"}
+      </h2>
     </div>
   );
 };
