@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/showList.css";
 
+import { singleMovie } from "../utils/API";
+
 const ShowList = (props) => {
+  const [singleMovieData, setSingleMovieData] = useState([]);
   console.log("list from search bar&&&&&&&& ", props);
 
-  const handleClick = (id) => {
+  const handleClick = async (id) => {
     console.log("I am inside handle click");
     console.log(id);
+
+    try {
+      const response = await singleMovie(id);
+      console.log(response);
+
+      const items = response.data;
+      console.log(items);
+
+      /*  const bookData = items.map((book) => ({
+        bookId: book.id,
+        authors: book.volumeInfo.authors || ["No author to display"],
+        title: book.volumeInfo.title,
+        description: book.volumeInfo.description,
+        image: book.volumeInfo.imageLinks?.thumbnail || "",
+        link: book.volumeInfo.infoLink || "",
+      })); */
+      //console.log(bookData);
+      //setSearchedBooks(bookData);
+      //setSearchInput("");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
