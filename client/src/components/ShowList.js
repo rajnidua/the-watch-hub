@@ -8,6 +8,10 @@ const ShowList = (props) => {
   const [singleMovieData, setSingleMovieData] = useState([]);
   console.log("list from search bar&&&&&&&& ", props);
 
+  const handleSave = (id) => {
+    console.log("SAVE ####" + id);
+  };
+
   const handleClick = async (id) => {
     console.log("I am inside handle click");
     console.log(id);
@@ -55,7 +59,12 @@ const ShowList = (props) => {
                     <div className="title">{movie.Title}</div>
 
                     <div className="released-year">{movie.Year}</div>
-                    <button onClick={() => handleClick(movie.imdbID)}>X</button>
+                    <button
+                      className="btn-view"
+                      onClick={() => handleClick(movie.imdbID)}
+                    >
+                      VIEW/SAVE
+                    </button>
                   </div>
                 </div>
               ) : (
@@ -88,6 +97,12 @@ const ShowList = (props) => {
                   <span className="additional">{singleMovieData.Runtime}</span>
                 </div>
                 <div className="bottom-section">{singleMovieData.Actors}</div>
+                <button
+                  className="btn-view"
+                  onClick={() => handleSave(singleMovieData.imdbID)}
+                >
+                  Watchlist
+                </button>
               </div>
             </div>
             <div className="middle-section">{singleMovieData.Plot}</div>

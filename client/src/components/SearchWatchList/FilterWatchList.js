@@ -105,8 +105,6 @@ const FilterWatchList = () => {
   return (
     <div className="container">
       <div className="search-container">
-        <FontAwesomeIcon icon={faSearch} />
-
         <form onSubmit={handleFormSubmit}>
           <input
             name="searchInput"
@@ -118,46 +116,48 @@ const FilterWatchList = () => {
             placeholder="Search"
             className="search-input"
           />
-          <button type="submit">Button</button>
+          <button type="submit" className="input-btn">
+            Submit
+          </button>
         </form>
-        <div className="checkbox-container">
-          <div className="feild Swimming">
+        <div className="radio-container">
+          <div className="field Any">
             <label for="any">Any</label>
             <input
               type="radio"
-              className="any-feild"
+              className="any-field"
               name={formState[0].type}
               checked={formState[0].checkValue}
               onClick={handleClick}
             />
           </div>
-          <div className="feild Movie">
+          <div className="field Movie">
             <label for="movies">Movies</label>
             <input
               type="radio"
-              className="movie-feild"
+              className="movie-field"
               name={formState[1].type}
               checked={formState[1].checkValue}
               onClick={handleClick}
             />
           </div>
 
-          <div className="feild Series">
+          <div className="field Series">
             <label for="series">Series</label>
             <input
               type="radio"
-              className="series-feild"
+              className="series-field"
               name={formState[2].type}
               checked={formState[2].checkValue}
               onClick={handleClick}
             />
           </div>
 
-          <div className="feild Episodes">
+          <div className="field Episodes">
             <label for="episodes">Episodes</label>
             <input
               type="radio"
-              className="episodes-feild"
+              className="episodes-field"
               name={formState[3].type}
               checked={formState[3].checkValue}
               onClick={handleClick}
@@ -181,7 +181,7 @@ const FilterWatchList = () => {
             selectedMovieType={filteredMovieType[0].type}
           />
         ) : (
-          "Search for a movie to begin"
+          <div className="static-text">Search for a movie to begin...</div>
         )}
       </div>
     </div>

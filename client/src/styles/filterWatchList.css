@@ -22,6 +22,19 @@
   border: 3px solid blueviolet;
 }
 
+.search-container {
+  display: flex;
+  justify-content: space-around;
+}
+.search-input {
+  font-size: 20px;
+}
+.input-btn {
+  background-color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .searchBarData-container {
   display: flex;
   flex-direction: column;
@@ -105,4 +118,19 @@ img {
 
 .middle-section .additional {
   margin: 10px;
+}
+
+/*radion container*/
+
+.radio-container {
+  display: flex;
+}
+.field {
+  cursor: pointer;
+  margin: 5px;
+}
+
+.static-text {
+  font-size: large;
+  padding-top: 30px;
 }
