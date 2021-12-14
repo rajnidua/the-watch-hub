@@ -5,7 +5,7 @@ import Loader from "react-loader-spinner";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [searchInput, setSearchInput] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -26,17 +26,8 @@ const SearchBar = () => {
       const items = response.data.Search;
       console.log(items);
 
-      /*  const movieData = items.map((movie) => ({
-        imdbId: movie.imdbID,
-        poster: movie.Poster,
-        title: movie.Title,
-        resultType: movie.Type,
-        releasedYear: movie.Year,
-        // plotType: movie.Plot,
-        //returnType: String
-      }));
-      console.log(movieData); */
       setSearchBarData(items);
+
       setSearchInput("");
     } catch (err) {
       console.log(err);
@@ -47,6 +38,7 @@ const SearchBar = () => {
     <div className="container">
       <div className="search-container">
         <FontAwesomeIcon icon={faSearch} />
+
         <form onSubmit={handleFormSubmit}>
           <input
             name="searchInput"
@@ -61,15 +53,17 @@ const SearchBar = () => {
           <button type="submit">Button</button>
         </form>
       </div>
-      <h2>
-        {searchBarData.length ? (
-          <div>
-            <ShowList searchBarData={searchBarData} />
-          </div>
-        ) : (
-          "Search for a movie to begin"
-        )}
-      </h2>
+      <div>
+        <div>
+          {searchBarData.length ? (
+            <div>
+              <ShowList searchBarData={searchBarData} />
+            </div>
+          ) : (
+            "Search for a movie to begin"
+          )}
+        </div>
+      </div>
     </div>
   );
 };

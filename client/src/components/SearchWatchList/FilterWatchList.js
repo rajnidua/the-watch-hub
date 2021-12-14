@@ -8,10 +8,10 @@ const FilterWatchList = () => {
   return (
     <div className="filters-container">
       <SearchBar />
-      <div className="filters-right">
+      {/* <div className="filters-right">
         <Slider />
         <RadioButton />
-      </div>
+      </div> */}
     </div>
   );
 };

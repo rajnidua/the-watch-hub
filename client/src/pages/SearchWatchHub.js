@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FilterWatchList from "../components/SearchWatchList/FilterWatchList";
 import AllWatchList from "../components/SearchWatchList/AllWatchList";
 import SingleWatchDetail from "../components/SearchWatchList/SingleWatchDetail";
@@ -8,10 +8,10 @@ const SearchWatchHub = () => {
   return (
     <div className="main-container">
       <FilterWatchList className="filter-watch" />
-      <div className="results-container">
+      {/* <div className="results-container">
         <AllWatchList className="all-watch" />
         <SingleWatchDetail className="single-watch" />
-      </div>
+      </div> */}
     </div>
   );
 };
