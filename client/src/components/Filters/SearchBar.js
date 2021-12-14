@@ -4,6 +4,7 @@ import ShowList from "../ShowList";
 import Loader from "react-loader-spinner";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../../styles/searchBar.css";
 
 const SearchBar = (props) => {
   const [searchInput, setSearchInput] = useState("");
@@ -54,7 +55,7 @@ const SearchBar = (props) => {
         </form>
       </div>
       <div>
-        <div>
+        <div className="data-container">
           {searchBarData.length ? (
             <div>
               <ShowList searchBarData={searchBarData} />
