@@ -1,12 +1,30 @@
-/* import React from "react";
+import React from "react";
 
 const ShowList = (props) => {
   console.log("list from search bar&&&&&&&& ", props);
- 
+
   return (
     <div>
       <div>it is loading</div>
+      <div>{props.searchBarData.length}</div>
+      <div>
+        {props.searchBarData.map((movie) => (
+          <div key={movie.imdbID}>
+            <p>{movie.imdbID}</p>
+            <p>{movie.title}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
+export default ShowList;
+
+/* imdbId: movie.imdbID, poster: movie.Poster, title: movie.Title,
+            resultType: movie.Type, releasedYear: movie.Year,  plotType:
+            movie.Plot,  */
+/*
       <div className="crypto-container">
         <p>it is result </p>
         {Object.keys(props.searchBarResult).Search.map((dataRow) => (
@@ -22,12 +40,6 @@ const ShowList = (props) => {
 
             <div className="current-price">{dataRow.Year}</div>
           </div>
-        ))}{" "}
-       
+        ))}
       </div>
-    </div>
-  );
-};
-
-export default ShowList;
- */
+      */

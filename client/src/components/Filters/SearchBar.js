@@ -26,9 +26,17 @@ const SearchBar = () => {
       const items = response.data.Search;
       console.log(items);
 
-      const movieData = items.map((movie) => console.log(movie.Title));
-      /* console.log(movieData);
-      setSearchBarData(movieData); */
+      /*  const movieData = items.map((movie) => ({
+        imdbId: movie.imdbID,
+        poster: movie.Poster,
+        title: movie.Title,
+        resultType: movie.Type,
+        releasedYear: movie.Year,
+        // plotType: movie.Plot,
+        //returnType: String
+      }));
+      console.log(movieData); */
+      setSearchBarData(items);
       setSearchInput("");
     } catch (err) {
       console.log(err);
@@ -54,12 +62,17 @@ const SearchBar = () => {
         </form>
       </div>
       <h2>
-        {searchBarData.length
-          ? `Viewing ${searchBarData.length} results:`
-          : "Search for a movie to begin"}
+        {searchBarData.length ? (
+          <div>
+            <ShowList searchBarData={searchBarData} />
+          </div>
+        ) : (
+          "Search for a movie to begin"
+        )}
       </h2>
     </div>
   );
 };
 
 export default SearchBar;
+//`Viewing ${searchBarData.length} results:`
