@@ -4,6 +4,11 @@ import "../styles/showList.css";
 const ShowList = (props) => {
   console.log("list from search bar&&&&&&&& ", props);
 
+  const handleClick = (id) => {
+    console.log("I am inside handle click");
+    console.log(id);
+  };
+
   return (
     <div classNAme="display-main">
       <div className="main">
@@ -18,7 +23,9 @@ const ShowList = (props) => {
                 </div>
                 <div className="name-section">
                   <div className="title">{movie.Title}</div>
+
                   <div className="released-year">{movie.Year}</div>
+                  <button onClick={() => handleClick(movie.imdbID)}>X</button>
                 </div>
               </div>
             </div>
