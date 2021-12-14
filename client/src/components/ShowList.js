@@ -4,6 +4,7 @@ import "../styles/showList.css";
 import { singleMovie } from "../utils/API";
 
 const ShowList = (props) => {
+  const [loading, setLoading] = useState(true);
   const [singleMovieData, setSingleMovieData] = useState([]);
   console.log("list from search bar&&&&&&&& ", props);
 
@@ -17,7 +18,8 @@ const ShowList = (props) => {
 
       const items = response.data;
       console.log(items);
-
+      setSingleMovieData(items);
+      console.log(singleMovieData);
       /*  const bookData = items.map((book) => ({
         bookId: book.id,
         authors: book.volumeInfo.authors || ["No author to display"],
@@ -29,6 +31,7 @@ const ShowList = (props) => {
       //console.log(bookData);
       //setSearchedBooks(bookData);
       //setSearchInput("");
+      setLoading(false);
     } catch (err) {
       console.log(err);
     }
@@ -58,7 +61,13 @@ const ShowList = (props) => {
         </div>
       </div>
       <div className="main">
-        <h3>display single movie data here</h3>
+        <div>
+          {loading ? (
+            "Search for a movie to begin"
+          ) : (
+            <div>single Data {singleMovieData.Title}</div>
+          )}
+        </div>
       </div>
     </div>
   );
