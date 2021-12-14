@@ -45,17 +45,22 @@ const ShowList = (props) => {
 
           {props.searchBarData.map((movie) => (
             <div key={movie.imdbID} className="data-row">
-              <div className="crypto-name">
-                <div className="img-section">
-                  <img src={movie.Poster} alt="image" />
-                </div>
-                <div className="name-section">
-                  <div className="title">{movie.Title}</div>
+              {props.selectedMovieType !== "any" &&
+              props.selectedMovieType === movie.Type ? (
+                <div className="crypto-name">
+                  <div className="img-section">
+                    <img src={movie.Poster} alt="image" />
+                  </div>
+                  <div className="name-section">
+                    <div className="title">{movie.Title}</div>
 
-                  <div className="released-year">{movie.Year}</div>
-                  <button onClick={() => handleClick(movie.imdbID)}>X</button>
+                    <div className="released-year">{movie.Year}</div>
+                    <button onClick={() => handleClick(movie.imdbID)}>X</button>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                ""
+              )}
             </div>
           ))}
         </div>
