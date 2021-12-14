@@ -65,7 +65,34 @@ const ShowList = (props) => {
           {loading ? (
             "Search for a movie to begin"
           ) : (
-            <div>single Data {singleMovieData.Title}</div>
+            <div className="main-single-movie-container">
+              <div className="top-section">
+                <div className="left-section"></div>
+                <div className="right-section">
+                  <div className="top-section">{singleMovieData.Title}</div>
+                  <div className="middle-section">
+                    {singleMovieData.Rated}
+                    {singleMovieData.Year}
+                    {singleMovieData.Genre}
+                    {singleMovieData.Runtime}
+                  </div>
+                  <div className="bottom-section">{singleMovieData.Actors}</div>
+                </div>
+              </div>
+              <div className="middle-section">{singleMovieData.Plot}</div>
+              <div className="bottom-section">
+                <div className="bottom-section-part">
+                  {singleMovieData.Ratings.map((movieRating) => (
+                    <div className="rating-section">
+                      <div>{movieRating.Source}</div>
+                      <div>{movieRating.Value}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="middle-bottom-section"></div>
+                <div className="right-bottom-section"></div>
+              </div>
+            </div>
           )}
         </div>
       </div>
@@ -74,3 +101,4 @@ const ShowList = (props) => {
 };
 
 export default ShowList;
+//  <div>single Data {singleMovieData.Title}</div>;
