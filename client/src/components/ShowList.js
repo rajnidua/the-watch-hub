@@ -66,14 +66,21 @@ const ShowList = (props) => {
         ) : (
           <div className="main-single-movie-container">
             <div className="top-section">
-              <div className="left-section"></div>
+              <div className="left-section">
+                <img
+                  className="single-image"
+                  src={singleMovieData.Poster}
+                ></img>
+              </div>
               <div className="right-section">
                 <div className="top-section">{singleMovieData.Title}</div>
                 <div className="middle-section">
-                  {singleMovieData.Rated}
-                  {singleMovieData.Year}
-                  {singleMovieData.Genre}
-                  {singleMovieData.Runtime}
+                  <span className="additional rated">
+                    {singleMovieData.Rated}
+                  </span>
+                  <span className="additional">{singleMovieData.Year}</span>
+                  <span className="additional">{singleMovieData.Genre}</span>
+                  <span className="additional">{singleMovieData.Runtime}</span>
                 </div>
                 <div className="bottom-section">{singleMovieData.Actors}</div>
               </div>
@@ -88,8 +95,6 @@ const ShowList = (props) => {
                   </div>
                 ))}
               </div>
-              <div className="middle-bottom-section"></div>
-              <div className="right-bottom-section"></div>
             </div>
           </div>
         )}

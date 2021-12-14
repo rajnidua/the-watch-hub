@@ -1,11 +1,3 @@
-/* html {
-  scroll-behavior: smooth;
-} */
-/* #searchBarData-container {
-  overflow: scroll;
-  white-space: nowrap;
-} */
-
 .display-main {
   background-color: #0096ff;
   width: 1300px;
@@ -72,46 +64,45 @@
   flex-direction: column;
   padding-left: 2px;
 }
-.crypto-name .name-section p {
-}
 
 img {
   height: 60px;
   width: 60px;
 }
-.change-percentage .green {
-  color: darkgreen;
-  font-weight: bold;
-}
-
-.change-percentage .red {
-  color: red;
-  font-weight: bold;
-}
-
 .title {
   font-weight: bold;
 }
 
-.btn-img:hover {
-  cursor: pointer;
+/*single movie section*/
+
+.single-image {
+  height: 300px;
+  width: 200px;
 }
 
-.btn-buy {
-  background-color: #0096ff;
-  max-width: 100px;
+.top-section {
+  display: flex;
+}
+
+.top-section .right-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-section .top-section {
+  font-size: 25px;
   font-weight: bold;
-  color: white;
 }
 
-.btn-buy:hover {
-  height: 30px;
-  cursor: pointer;
+.bottom-section .bottom-section-part {
+  display: flex;
+  justify-content: space-between;
 }
 
-.btn-buy-title {
-  max-width: 100px;
+.middle-section .rated {
+  border: 2px solid gray;
 }
-.first h4 {
-  color: gray;
+
+.middle-section .additional {
+  margin: 10px;
 }
