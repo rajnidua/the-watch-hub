@@ -27,17 +27,17 @@ export const ADD_USER = gql`
 
 export const SAVE_WATCHLIST = gql`
   mutation saveWatchList($myWatchList: SavedWatchListInput!) {
-    saveWatchList($myWatchList: myWatchList) {
+    saveWatchList(myWatchList: $myWatchList) {
       username
       savedWatchList {
-         _id
-    imdbId
-    poster
-    title
-    resultType
-    releasedYear
-    plotType
-    returnType
+        _id
+        imdbId
+        poster
+        title
+        resultType
+        releasedYear
+        plotType
+        returnType
       }
     }
   }

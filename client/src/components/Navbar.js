@@ -25,19 +25,18 @@ const NavBar = () => {
           </Link>
         </div>
         <ul className={click ? "menu active" : "menu"}>
-          {/* {Auth.loggedIn()  ? (
-            <>
-              <li>
-                <Link to="/CoachProfile" className="menu-btn">
-                  Saved Watchlist
-                </Link>
-              </li>
-            </>
-          ) : (
-            <></>
-          )} */}
+          <li>
+            <Link to="/" className="menu-btn">
+              Search Watchhub
+            </Link>
+          </li>
+          <li>
+            <Link to="/saved" className="menu-btn">
+              Saved WatchList
+            </Link>
+          </li>
 
-          {Auth.loggedIn() ? (
+          {/*  {Auth.loggedIn() ? (
             <>
               <li>
                 <Link to="/" className="menu-btn">
@@ -71,7 +70,7 @@ const NavBar = () => {
                 </Link>
               </li>
             </>
-          )}
+          )} */}
         </ul>
 
         <div className="menu-btn" onClick={handleClick}>

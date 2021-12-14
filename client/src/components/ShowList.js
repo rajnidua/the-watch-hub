@@ -2,14 +2,35 @@ import React, { useState } from "react";
 import "../styles/showList.css";
 
 import { singleMovie } from "../utils/API";
+import { useMutation } from "@apollo/client";
+import { SAVE_WATCHLIST } from "../utils/mutations";
 
 const ShowList = (props) => {
   const [loading, setLoading] = useState(true);
   const [singleMovieData, setSingleMovieData] = useState([]);
   console.log("list from search bar&&&&&&&& ", props);
 
+  const [saveState, setSaveState] = useState({
+    imdbID: "",
+    title: "",
+    poster: "",
+    resultType: "",
+    releasedYear: "",
+    plotType: "",
+  });
+
+  const [saveWatchList, { error, data }] = useMutation(SAVE_WATCHLIST);
+
   const handleSave = (id) => {
     console.log("SAVE ####" + id);
+    setSaveState({
+      imdbID: singleMovieData.imdbID,
+      title: singleMovieData.Title,
+      poster: singleMovieData.Poster,
+      resultType: singleMovieData.Actors,
+      releasedYear: singleMovieData.Year,
+      plotType: singleMovieData.Plot,
+    });
   };
 
   const handleClick = async (id) => {
@@ -24,6 +45,7 @@ const ShowList = (props) => {
       console.log(items);
       setSingleMovieData(items);
       console.log(singleMovieData);
+
       /*  const bookData = items.map((book) => ({
         bookId: book.id,
         authors: book.volumeInfo.authors || ["No author to display"],
@@ -40,6 +62,8 @@ const ShowList = (props) => {
       console.log(err);
     }
   };
+
+  console.log("###########", saveState);
 
   return (
     <div classNAme="display-main">

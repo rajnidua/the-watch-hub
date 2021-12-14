@@ -1,7 +1,8 @@
 import React from "react";
+import SavedList from "../components/SavedList";
 
 const SavedWatchList = () => {
-  return <div>I am in saved Watch list</div>;
+  return <SavedList className="saved-watch" />;
 };
 
 export default SavedWatchList;
