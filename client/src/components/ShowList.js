@@ -5,22 +5,24 @@ const ShowList = (props) => {
   console.log("list from search bar&&&&&&&& ", props);
 
   return (
-    <div className="SearchBarData-container">
-      <div>{props.searchBarData.length}</div>
+    <div className="main">
+      <div className="SearchBarData-container" id="SearchBarData-container">
+        <div>{props.searchBarData.length}</div>
 
-      {props.searchBarData.map((movie) => (
-        <div key={movie.imdbID} className="data-row">
-          <div className="crypto-name">
-            <div className="img-section">
-              <img src={movie.Poster} alt="image" />
-            </div>
-            <div className="name-section">
-              <div className="title">{movie.Title}</div>
-              <div className="released-year">{movie.Year}</div>
+        {props.searchBarData.map((movie) => (
+          <div key={movie.imdbID} className="data-row">
+            <div className="crypto-name">
+              <div className="img-section">
+                <img src={movie.Poster} alt="image" />
+              </div>
+              <div className="name-section">
+                <div className="title">{movie.Title}</div>
+                <div className="released-year">{movie.Year}</div>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
