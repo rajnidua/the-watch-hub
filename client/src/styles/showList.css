@@ -1,0 +1,82 @@
+.searchBarData-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 40px;
+  background-color: #ffffff;
+}
+
+.crypto-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 2px solid #d6d8da;
+}
+
+.first {
+  background-color: #d7dced;
+}
+
+.first-col {
+  padding-left: 10px;
+}
+
+/* .crypto-name > * {
+  flex: 1;
+} */
+
+.crypto-name {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.crypto-name .name-section {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2px;
+}
+.crypto-name .name-section p {
+}
+
+img {
+  height: 60px;
+  width: 60px;
+}
+.change-percentage .green {
+  color: darkgreen;
+  font-weight: bold;
+}
+
+.change-percentage .red {
+  color: red;
+  font-weight: bold;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.btn-img:hover {
+  cursor: pointer;
+}
+
+.btn-buy {
+  background-color: #0096ff;
+  max-width: 100px;
+  font-weight: bold;
+  color: white;
+}
+
+.btn-buy:hover {
+  height: 30px;
+  cursor: pointer;
+}
+
+.btn-buy-title {
+  max-width: 100px;
+}
+.first h4 {
+  color: gray;
+}
