@@ -1,24 +1,108 @@
-/* .filters-container {
+.display-main {
+  background-color: #0096ff;
+  width: 1300px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: calc(50%-20px);
-  background-color: beige;
+  border: 2px solid gold;
 }
 
-.filters-right {
-  display: flex;
-  flex-direction: row;
-  background-color: blue;
-  justify-content: space-between;
-  padding: 40px;
+.main {
+  /* background-color: red; */
+  width: 500px;
+  height: 80vh;
+  overflow: scroll;
+  /* display: flex;
+  flex-direction: column; */
+  /* border: 2px solid orange; */
+  float: left;
 }
- */
+.main-right {
+  display: flex;
+  border: 3px solid blueviolet;
+}
 
-/* .data-container {
-  background-color: green;
+.searchBarData-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 40px;
+  background-color: #ffffff;
+  width: 100%;
+  height: 80vh;
+  overflow: scroll;
+}
+
+.crypto-name {
   display: flex;
   flex-direction: row;
-  border: 3px solid black;
-  
+  align-items: center;
+  border-bottom: 2px solid #d6d8da;
+}
+
+.first {
+  background-color: #d7dced;
+}
+
+.first-col {
+  padding-left: 10px;
+}
+
+/* .crypto-name > * {
+  flex: 1;
 } */
+
+.crypto-name {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.crypto-name .name-section {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2px;
+}
+
+img {
+  height: 60px;
+  width: 60px;
+}
+.title {
+  font-weight: bold;
+}
+
+/*single movie section*/
+
+.single-image {
+  height: 300px;
+  width: 200px;
+}
+
+.top-section {
+  display: flex;
+}
+
+.top-section .right-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-section .top-section {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.bottom-section .bottom-section-part {
+  display: flex;
+  justify-content: space-between;
+}
+
+.middle-section .rated {
+  border: 2px solid gray;
+}
+
+.middle-section .additional {
+  margin: 10px;
+}
