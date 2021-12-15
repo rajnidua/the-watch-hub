@@ -28,11 +28,6 @@ const typeDefs = gql`
     returnType: String
   }
 
-  type Auth {
-    token: ID!
-    user: User
-  }
-
   input userInput {
     _id: ID
     username: String
@@ -57,6 +52,11 @@ const typeDefs = gql`
     releasedYear: String
     plotType: String
     returnType: String
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type Query {

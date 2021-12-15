@@ -1,0 +1,334 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.max-width-stuDashboard {
+  max-width: 1600px;
+  padding: 0 80px;
+  margin: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+:root {
+  --text-color: #333332;
+  --main-color: #fe7c31;
+}
+
+.btn {
+  background: var(--main-color);
+  color: var(--text-color);
+  font-size: 15px;
+  padding: 12px 36px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--main-color);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ffffff;
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+}
+
+/* input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+} */
+
+/* textarea {
+  height: 100px;
+} */
+
+input[type="checkbox"] {
+  margin: 10px 5px 10px 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+/* Coach Cards Styling */
+.coach-cards {
+  display: inline-block;
+  padding: 0;
+}
+
+.coach-cards {
+  width: 100%;
+  padding: 30px 0;
+  font-family: "Ubuntu", sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* .coach-cards .max-width {
+  width: 95%;
+  margin: 40px;
+  padding: 30px 0;
+  display: flex;
+  
+} */
+
+.coach-cards .max-width {
+  width: 95%;
+  margin: 10px;
+  padding: 30px 0;
+  display: flex;
+  overflow-x: scroll;
+}
+
+/* .coach-cards .filters-calender {
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: var(--main-color);
+  cursor: pointer;
+} */
+
+.coach-cards .filters-calender {
+  width: 25%;
+
+  bottom: 200px;
+  float: left;
+  background: #d1d1d1;
+  padding: 20px;
+}
+
+/* .coach-cards .filters-calender {
+  width: 30%;
+  float: left;
+  position: static;
+  background: #d1d1d1;
+  padding: 20px;
+} */
+
+.coach-cards .filters-calender .location-container {
+  display: flex;
+  padding: 30px 0;
+  justify-content: space-between;
+}
+
+.coach-cards .filters-calender .location-container input {
+  width: 70%;
+}
+
+.coach-cards .filters-calender .location-container a {
+  width: 20%;
+  margin: 10px 30px 10px 0;
+}
+
+.coach-cards .filters-calender .sport-container {
+  display: flex;
+  padding-bottom: 30px;
+  justify-content: space-between;
+}
+
+.coach-cards .filters-calender .sport-container input {
+  width: 70%;
+}
+
+.coach-cards .filters-calender .sport-container a {
+  width: 20%;
+  margin: 10px 30px 10px 0;
+}
+
+.coach-cards .filters-calender .slidecontainer {
+  width: 100%;
+  padding: 30px 0;
+}
+
+.coach-cards .filters-calender .slidecontainer .slider {
+  -webkit-appearance: none;
+  width: 70%;
+  height: 10px;
+  border-radius: 5px;
+  background: #ffffff;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.coach-cards .filters-calender .slidecontainer .slider:hover {
+  opacity: 1;
+}
+
+/* .coach-cards
+  .filters-calender
+  .slidecontainer
+  input[type="range"]::-moz-progress-bar {
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: var(--main-color);
+  cursor: pointer;
+} */
+
+/* .coach-cards .filters-calender .checkbox-container li {
+  list-style: none;
+  text-decoration: none;
+} */
+
+.coach-cards .coach-columns-2 {
+  width: 100%;
+  display: inline-block;
+  overflow: scroll;
+}
+
+/* .coach-cards .coach-columns {
+  width: 70%;
+  display: inline-block;
+  overflow: scroll;
+} */
+
+.coach-cards .coach-columns-2 .coach-row-2 {
+  display: flex;
+  width: 95%;
+  justify-content: space-around;
+  background: #a9a8bf4d;
+  margin: 30px;
+}
+
+.coach-cards .coach-row-2 .coach-profile-col-2 {
+  width: 15%;
+  display: inline;
+}
+
+.coach-cards .coach-row-2 .coach-profile-col-2 p {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.coach-cards .coach-row-2 .coach-profile-col-2 img {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+
+  border: 5px solid #574efc;
+  transition: all 0.3s ease;
+}
+
+.coach-cards .coach-row-2 .coach-description-col {
+  width: 60%;
+  display: inline;
+  justify-content: space-between;
+  padding: 15px;
+  margin: 10px;
+}
+
+.coach-cards .coach-row-2 .coach-description-col h4 {
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.coach-cards .coach-row-2 .coach-review-col {
+  width: 15%;
+  align-items: center;
+  display: inline-block;
+  justify-content: space-between;
+  padding: 15px;
+  margin: 10px;
+}
+
+.coach-cards .coach-row-2 .coach-review-col .stars {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coach-cards .coach-row-2 .coach-review-col .stars .bx {
+  color: var(--main-color);
+}
+
+.enroll-btn {
+  position: relative;
+  top: 20px;
+}
+
+/* Responsive Styling */
+@media (max-width: 1425px) {
+  .coach-cards {
+    display: inline-block;
+    justify-content: space-between;
+  }
+
+  .coach-cards .max-width .coach-row-2 .coach-profile-col img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .coach-cards .max-width .coach-row-2 .coach-review-col .stars {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1364px) {
+  .coach-cards .max-width .coach-row-2 .coach-review-col .stars {
+    font-size: 12px;
+  }
+
+  .coach-cards .max-width .coach-row-2 .coach-review-col .reviews {
+    font-size: 15px;
+  }
+
+  .coach-cards .max-width .coach-row-2 .coach-review-col .btn {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 10px 25px;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .coach-cards .max-width .coach-row-2 .coach-profile-col img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .coach-cards .max-width .coach-row-2 .coach-review-col {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .coach-cards .max-width .coach-row-2 .coach-review-col .reviews {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1098px) {
+  .coach-cards .max-width .coach-row-2 .coach-description-col {
+    width: 57%;
+  }
+
+  .coach-cards .max-width .coach-row-2 .coach-review-col {
+    width: 18%;
+  }
+}
+
+@media (max-width: 928px) {
+}
+
+@media (max-width: 500px) {
+}

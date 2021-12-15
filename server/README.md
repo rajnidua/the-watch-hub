@@ -171,3 +171,60 @@ email
   }
 }
 ```
+
+```javascript
+query{
+user(username:"rajni"){
+_id
+email
+username
+savedWatchList{
+          _id
+          imdbId
+          title
+          poster
+          resultType
+          returnType
+          releasedYear
+          plotType
+
+        }
+	}
+}
+```
+
+Result
+
+```javascript
+{
+  "data": {
+    "user": {
+      "_id": "61b94cb5dbea262dd2fe44f8",
+      "email": "rajni@techfriends.dev",
+      "username": "rajni",
+      "savedWatchList": [
+        {
+          "_id": "61b96f0c8ecb18313342579c",
+          "imdbId": "tt0241527",
+          "title": "Harry Potter and the Sorcerer's Stone",
+          "poster": "https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg",
+          "resultType": "2001",
+          "returnType": null,
+          "releasedYear": "Daniel Radcliffe, Rupert Grint, Richard Harris",
+          "plotType": "2001"
+        },
+        {
+          "_id": "61b9712e8ecb1831334257a0",
+          "imdbId": "tt0330373",
+          "title": "Harry Potter and the Goblet of Fire",
+          "poster": "https://m.media-amazon.com/images/M/MV5BMTI1NDMyMjExOF5BMl5BanBnXkFtZTcwOTc4MjQzMQ@@._V1_SX300.jpg",
+          "resultType": "2005",
+          "returnType": null,
+          "releasedYear": "Daniel Radcliffe, Emma Watson, Rupert Grint",
+          "plotType": "2005"
+        }
+      ]
+    }
+  }
+}
+```
