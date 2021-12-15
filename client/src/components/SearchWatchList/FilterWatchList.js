@@ -106,6 +106,9 @@ const FilterWatchList = () => {
     <div className="container">
       <div className="search-container">
         <form onSubmit={handleFormSubmit}>
+          <button type="submit" className="input-btn">
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
           <input
             name="searchInput"
             value={searchInput}
@@ -116,9 +119,9 @@ const FilterWatchList = () => {
             placeholder="Search"
             className="search-input"
           />
-          <button type="submit" className="input-btn">
-            Submit
-          </button>
+          {/*  <button type="submit" className="input-btn">
+            <FontAwesomeIcon icon={faSearch} />
+          </button> */}
         </form>
         <div className="radio-container">
           <div className="field Any">

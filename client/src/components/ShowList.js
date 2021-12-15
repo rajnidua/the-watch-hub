@@ -5,6 +5,9 @@ import { singleMovie } from "../utils/API";
 import { useMutation } from "@apollo/client";
 import { SAVE_WATCHLIST } from "../utils/mutations";
 import Auth from "../utils/auth.js";
+import { faList } from "@fortawesome/free-solid-svg-icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ShowList = (props) => {
   const [loading, setLoading] = useState(true);
@@ -91,76 +94,59 @@ const ShowList = (props) => {
     <div classNAme="display-main">
       <div className="main">
         <div className="SearchBarData-container" id="SearchBarData-container">
-          <div>{props.searchBarData.length}</div>
+          <div>{props.searchBarData.length} RESULTS</div>
 
           {props.searchBarData.map((movie) => (
             <div key={movie.imdbID} className="data-row">
               {props.selectedMovieType === "any" ? (
-                <div className="crypto-name">
-                  <div className="img-section">
-                    <img src={movie.Poster} alt="image" />
-                  </div>
-                  <div className="name-section">
-                    <div className="title">{movie.Title}</div>
+                <button
+                  className="btn-view1"
+                  onClick={() => handleClick(movie.imdbID)}
+                >
+                  <div className="crypto-name">
+                    <div className="img-section">
+                      <img src={movie.Poster} alt="image" />
+                    </div>
+                    <div className="name-section">
+                      <div className="title">{movie.Title}</div>
 
-                    <div className="released-year">{movie.Year}</div>
-                    <button
-                      className="btn-view"
-                      onClick={() => handleClick(movie.imdbID)}
-                    >
-                      VIEW
-                    </button>
+                      <div className="released-year">{movie.Year}</div>
+                    </div>
                   </div>
-                </div>
+                </button>
               ) : props.selectedMovieType !== "any" &&
                 props.selectedMovieType === movie.Type ? (
-                <div className="crypto-name">
-                  <div className="img-section">
-                    <img src={movie.Poster} alt="image" />
-                  </div>
-                  <div className="name-section">
-                    <div className="title">{movie.Title}</div>
+                <button
+                  className="btn-view1"
+                  onClick={() => handleClick(movie.imdbID)}
+                >
+                  <div className="crypto-name">
+                    <div className="img-section">
+                      <img src={movie.Poster} alt="image" />
+                    </div>
+                    <div className="name-section">
+                      <div className="title">{movie.Title}</div>
 
-                    <div className="released-year">{movie.Year}</div>
-                    <button
-                      className="btn-view"
-                      onClick={() => handleClick(movie.imdbID)}
-                    >
-                      VIEW/SAVE
-                    </button>
+                      <div className="released-year">{movie.Year}</div>
+                      {/* <button
+                        className="btn-view"
+                        onClick={() => handleClick(movie.imdbID)}
+                      >
+                        VIEW
+                      </button> */}
+                    </div>
                   </div>
-                </div>
+                </button>
               ) : (
                 ""
               )}
-              {/* {props.selectedMovieType !== "any" &&
-              props.selectedMovieType === movie.Type ? (
-                <div className="crypto-name">
-                  <div className="img-section">
-                    <img src={movie.Poster} alt="image" />
-                  </div>
-                  <div className="name-section">
-                    <div className="title">{movie.Title}</div>
-
-                    <div className="released-year">{movie.Year}</div>
-                    <button
-                      className="btn-view"
-                      onClick={() => handleClick(movie.imdbID)}
-                    >
-                      VIEW/SAVE
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                ""
-              )} */}
             </div>
           ))}
         </div>
       </div>
       <div className="main-right">
         {loading ? (
-          "Search for a movie to begin"
+          "Select from the list to view details : "
         ) : (
           <div className="main-single-movie-container">
             <div className="top-section">
@@ -171,19 +157,9 @@ const ShowList = (props) => {
                 ></img>
               </div>
               <div className="right-section">
-                <div className="top-section">{singleMovieData.Title}</div>
-                <div className="middle-section">
-                  <span className="additional rated">
-                    {singleMovieData.Rated}
-                  </span>
-                  <span className="additional">{singleMovieData.Year}</span>
-                  <span className="additional">{singleMovieData.Genre}</span>
-                  <span className="additional">{singleMovieData.Runtime}</span>
-                </div>
-                <div className="bottom-section">{singleMovieData.Actors}</div>
                 {Auth.loggedIn() ? (
                   <button
-                    className="btn-view"
+                    className="btn-view-save"
                     onClick={() =>
                       handleSave(
                         singleMovieData.imdbID,
@@ -196,11 +172,21 @@ const ShowList = (props) => {
                       )
                     }
                   >
-                    Watchlist
+                    Watchlist <FontAwesomeIcon icon={faList} />
                   </button>
                 ) : (
                   ""
                 )}
+                <div className="top-section">{singleMovieData.Title}</div>
+                <div className="middle-section">
+                  <span className="additional rated">
+                    {singleMovieData.Rated}
+                  </span>
+                  <span className="additional">{singleMovieData.Year}</span>
+                  <span className="additional">{singleMovieData.Genre}</span>
+                  <span className="additional">{singleMovieData.Runtime}</span>
+                </div>
+                <div className="bottom-section">{singleMovieData.Actors}</div>
               </div>
             </div>
             <div className="middle-section">{singleMovieData.Plot}</div>
@@ -222,4 +208,3 @@ const ShowList = (props) => {
 };
 
 export default ShowList;
-//  <div>single Data {singleMovieData.Title}</div>;

@@ -32,14 +32,19 @@
   font-size: 20px;
   padding-top: 10px;
   width: 270px;
+  background-color: black;
+  border: 1px solid black;
 }
 .input-btn {
-  background-color: red;
+  /* background-color: red; */
+  background-color: black;
+  color: white;
   font-size: 20px;
   cursor: pointer;
   padding-top: 10px;
   width: 100px;
   font-weight: bold;
+  border: 1px solid black;
 }
 
 .searchBarData-container {
