@@ -22,20 +22,28 @@ const ShowList = (props) => {
 
   const [saveWatchList, { error, data }] = useMutation(SAVE_WATCHLIST);
 
-  const handleSave = async (id) => {
+  const handleSave = async (id, title, poster, type, year, plot) => {
     console.log("SAVE ####" + id);
-    setSaveState({
-      imdbID: singleMovieData.imdbID,
-      title: singleMovieData.Title,
-      poster: singleMovieData.Poster,
-      resultType: singleMovieData.Actors,
-      releasedYear: singleMovieData.Year,
-      plotType: singleMovieData.Plot,
-    });
-
+    const saveMovie = {
+      imdbId: id,
+      title: title,
+      poster: poster,
+      resultType: type,
+      releasedYear: year,
+      plotType: plot,
+    };
+    /*  setSaveState({
+      imdbID: id,
+      title: title,
+      poster: poster,
+      resultType: type,
+      releasedYear: year,
+      plotType: plot,
+    }); */
+    console.log("^^^^^^^", saveMovie);
     try {
       const { data } = await saveWatchList({
-        variables: { myWatchList: { ...saveState } },
+        variables: { myWatchList: { ...saveMovie } },
       });
 
       console.log("SAVED DATA -->> ", data);
@@ -47,14 +55,14 @@ const ShowList = (props) => {
     }
 
     // clear form values
-    setSaveState({
+    /*  setSaveState({
       imdbID: "",
       title: "",
       poster: "",
       resultType: "",
       releasedYear: "",
       plotType: "",
-    });
+    }); */
   };
 
   const handleClick = async (id) => {
@@ -147,7 +155,17 @@ const ShowList = (props) => {
                 <div className="bottom-section">{singleMovieData.Actors}</div>
                 <button
                   className="btn-view"
-                  onClick={() => handleSave(singleMovieData.imdbID)}
+                  onClick={() =>
+                    handleSave(
+                      singleMovieData.imdbID,
+                      singleMovieData.Title,
+                      singleMovieData.Poster,
+                      singleMovieData.Year,
+                      singleMovieData.Actors,
+                      singleMovieData.Year,
+                      singleMovieData.Plot
+                    )
+                  }
                 >
                   Watchlist
                 </button>

@@ -23,7 +23,7 @@ const typeDefs = gql`
     poster: String
     title: String
     resultType: String
-    releasedYear: Float
+    releasedYear: String
     plotType: String
     returnType: String
   }
@@ -54,7 +54,7 @@ const typeDefs = gql`
     poster: String
     title: String
     resultType: String
-    releasedYear: Float
+    releasedYear: String
     plotType: String
     returnType: String
   }

@@ -20,7 +20,7 @@ const watchListSchema = new Schema({
     required: false,
   },
   releasedYear: {
-    type: Number,
+    type: String,
     required: false,
   },
   plotType: {
