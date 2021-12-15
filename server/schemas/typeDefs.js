@@ -3,9 +3,17 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type User {
     _id: ID
-    username: String
-    email: String
-    watchListCount: String
+
+    username: String!
+    email: String!
+    password: String!
+
+    houseNumber: String
+    streetName: String
+    postalCode: String
+    state: String
+    country: String
+    city: String
     savedWatchList: [WatchList]!
   }
 
@@ -25,6 +33,21 @@ const typeDefs = gql`
     user: User
   }
 
+  input userInput {
+    _id: ID
+    username: String
+    email: String
+    password: String
+
+    houseNumber: String
+    streetName: String
+    postalCode: String
+    state: String
+    country: String
+    city: String
+    savedWatchList: [SavedWatchListInput]
+  }
+
   input SavedWatchListInput {
     _id: ID
     imdbId: String
@@ -42,7 +65,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(input: userInput!): Auth
+
     login(email: String!, password: String!): Auth
     saveWatchList(myWatchList: SavedWatchListInput!): User
     removeWatchList(imdbId: String!): User
@@ -50,3 +74,5 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
+
+// addUser(username: String!, email: String!, password: String!): Auth

@@ -35,6 +35,11 @@ const NavBar = () => {
               Saved WatchList
             </Link>
           </li>
+          <li>
+            <Link to="/Login" className="menu-btn btn log-in-nav">
+              LogIn
+            </Link>
+          </li>
 
           {/*  {Auth.loggedIn() ? (
             <>

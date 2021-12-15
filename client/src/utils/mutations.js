@@ -13,6 +13,26 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
+  mutation addUser($input: userInput!) {
+    addUser(input: $input) {
+      token
+      user {
+        username
+        _id
+        email
+
+        streetName
+        houseNumber
+        postalCode
+        state
+        country
+        city
+      }
+    }
+  }
+`;
+
+/* export const ADD_USER = gql`
   mutation addUser($username: String!, $password: String!, $email: String!) {
     addUser(username: $username, password: $password, email: $email) {
       token
@@ -23,7 +43,7 @@ export const ADD_USER = gql`
       }
     }
   }
-`;
+`; */
 
 export const SAVE_WATCHLIST = gql`
   mutation saveWatchList($myWatchList: SavedWatchListInput!) {
@@ -44,7 +64,7 @@ export const SAVE_WATCHLIST = gql`
 `;
 
 export const REMOVE_WATCHLIST = gql`
-  mutation removeBook($bookId: String!) {
+  mutation removeWatchList($bookId: String!) {
     removeBook(bookId: $bookId) {
       _id
       username

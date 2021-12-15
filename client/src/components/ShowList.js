@@ -8,6 +8,7 @@ import { SAVE_WATCHLIST } from "../utils/mutations";
 const ShowList = (props) => {
   const [loading, setLoading] = useState(true);
   const [singleMovieData, setSingleMovieData] = useState([]);
+  const [confirmed, setConfirmed] = useState(false);
   console.log("list from search bar&&&&&&&& ", props);
 
   const [saveState, setSaveState] = useState({
@@ -21,7 +22,7 @@ const ShowList = (props) => {
 
   const [saveWatchList, { error, data }] = useMutation(SAVE_WATCHLIST);
 
-  const handleSave = (id) => {
+  const handleSave = async (id) => {
     console.log("SAVE ####" + id);
     setSaveState({
       imdbID: singleMovieData.imdbID,
@@ -30,6 +31,29 @@ const ShowList = (props) => {
       resultType: singleMovieData.Actors,
       releasedYear: singleMovieData.Year,
       plotType: singleMovieData.Plot,
+    });
+
+    try {
+      const { data } = await saveWatchList({
+        variables: { myWatchList: { ...saveState } },
+      });
+
+      console.log("SAVED DATA -->> ", data);
+      setConfirmed(true);
+
+      //Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setSaveState({
+      imdbID: "",
+      title: "",
+      poster: "",
+      resultType: "",
+      releasedYear: "",
+      plotType: "",
     });
   };
 

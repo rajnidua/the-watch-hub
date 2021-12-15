@@ -9,16 +9,40 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+      trim: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, "Must use a valid email address"],
+      match: [/.+@.+\..+/, "Must match an email address!"],
     },
     password: {
       type: String,
       required: true,
+      minlength: 5,
+    },
+    houseNumber: {
+      type: String,
+      required: false,
+    },
+    streetName: {
+      type: String,
+      required: false,
+    },
+    postalCode: {
+      type: String,
+      required: true,
+      default: 4000,
+    },
+    state: { type: String, required: false },
+    country: {
+      type: String,
+      required: false,
+    },
+    city: {
+      type: String,
+      required: false,
     },
     // set savedWatchList to be an array of data that adheres to the watchListSchema
     savedWatchList: [watchListSchema],
