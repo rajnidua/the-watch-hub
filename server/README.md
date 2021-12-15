@@ -85,3 +85,89 @@ city
   }
 }
 ```
+
+---
+
+---
+
+```md
+Query login
+```
+
+```javascript
+mutation login($email: String!, $password: String!) {
+login(email: $email, password: $password) {
+token
+user {
+_id
+username
+email
+
+
+        houseNumber
+        streetName
+        postalCode
+        state
+        country
+        savedWatchList{
+          _id
+          imdbId
+          title
+          poster
+          resultType
+          returnType
+          releasedYear
+          plotType
+
+        }
+
+
+      }
+    }
+
+}
+```
+
+**_Query Variables_**
+
+```javascript
+
+{
+  "email": "rajni@techfriends.dev",
+"password": "12345678"
+}
+```
+
+**_Result_**
+
+```javascript
+{
+  "data": {
+    "login": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoicmFqbmkiLCJlbWFpbCI6InJham5pQHRlY2hmcmllbmRzLmRldiIsIl9pZCI6IjYxYjk0Y2I1ZGJlYTI2MmRkMmZlNDRmOCJ9LCJpYXQiOjE2Mzk1NDI3MzAsImV4cCI6MTYzOTU0OTkzMH0.cVlmsMoYR_Pw50MikDaKD46Ez6C-Fj1tDeJjXe1piuE",
+      "user": {
+        "_id": "61b94cb5dbea262dd2fe44f8",
+        "username": "rajni",
+        "email": "rajni@techfriends.dev",
+        "houseNumber": "23",
+        "streetName": "ashford",
+        "postalCode": "5307",
+        "state": "SA",
+        "country": "Australia",
+        "savedWatchList": [
+          {
+            "_id": "61b96f0c8ecb18313342579c",
+            "imdbId": "tt0241527",
+            "title": "Harry Potter and the Sorcerer's Stone",
+            "poster": "https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg",
+            "resultType": "2001",
+            "returnType": null,
+            "releasedYear": "Daniel Radcliffe, Rupert Grint, Richard Harris",
+            "plotType": "2001"
+          }
+        ]
+      }
+    }
+  }
+}
+```
