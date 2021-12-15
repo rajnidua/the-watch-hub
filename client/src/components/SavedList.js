@@ -23,7 +23,6 @@ function SavedList() {
 
   return (
     <section className="coach-cards">
-      <div>Testing</div>
       <div className="max-width-stuDashboard">
         {userLoading ? (
           <div>Loading...</div>
