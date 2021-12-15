@@ -30,34 +30,12 @@ const NavBar = () => {
               Search Watchhub
             </Link>
           </li>
-          <li>
-            <Link to="/saved" className="menu-btn">
-              Saved WatchList
-            </Link>
-          </li>
-          <li>
-            <Link to="/Login" className="menu-btn btn log-in-nav">
-              LogIn
-            </Link>
-          </li>
 
-          {/*  {Auth.loggedIn() ? (
+          {Auth.loggedIn() ? (
             <>
-              <li>
-                <Link to="/" className="menu-btn">
-                  Search Watchhub
-                </Link>
-              </li>
               <li>
                 <Link to="/saved" className="menu-btn">
                   Saved WatchList
-                </Link>
-              </li>
-              <li>
-                <Link to="/NavCart" className="menu-btn">
-                  <span className="cart-icon">
-                    <FontAwesomeIcon icon={faShoppingCart} />
-                  </span>
                 </Link>
               </li>
 
@@ -75,7 +53,7 @@ const NavBar = () => {
                 </Link>
               </li>
             </>
-          )} */}
+          )}
         </ul>
 
         <div className="menu-btn" onClick={handleClick}>

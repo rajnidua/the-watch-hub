@@ -4,6 +4,7 @@ import "../styles/showList.css";
 import { singleMovie } from "../utils/API";
 import { useMutation } from "@apollo/client";
 import { SAVE_WATCHLIST } from "../utils/mutations";
+import Auth from "../utils/auth.js";
 
 const ShowList = (props) => {
   const [loading, setLoading] = useState(true);
@@ -78,17 +79,6 @@ const ShowList = (props) => {
       setSingleMovieData(items);
       console.log(singleMovieData);
 
-      /*  const bookData = items.map((book) => ({
-        bookId: book.id,
-        authors: book.volumeInfo.authors || ["No author to display"],
-        title: book.volumeInfo.title,
-        description: book.volumeInfo.description,
-        image: book.volumeInfo.imageLinks?.thumbnail || "",
-        link: book.volumeInfo.infoLink || "",
-      })); */
-      //console.log(bookData);
-      //setSearchedBooks(bookData);
-      //setSearchInput("");
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -153,22 +143,26 @@ const ShowList = (props) => {
                   <span className="additional">{singleMovieData.Runtime}</span>
                 </div>
                 <div className="bottom-section">{singleMovieData.Actors}</div>
-                <button
-                  className="btn-view"
-                  onClick={() =>
-                    handleSave(
-                      singleMovieData.imdbID,
-                      singleMovieData.Title,
-                      singleMovieData.Poster,
-                      singleMovieData.Year,
-                      singleMovieData.Actors,
-                      singleMovieData.Year,
-                      singleMovieData.Plot
-                    )
-                  }
-                >
-                  Watchlist
-                </button>
+                {Auth.loggedIn() ? (
+                  <button
+                    className="btn-view"
+                    onClick={() =>
+                      handleSave(
+                        singleMovieData.imdbID,
+                        singleMovieData.Title,
+                        singleMovieData.Poster,
+                        singleMovieData.Year,
+                        singleMovieData.Actors,
+                        singleMovieData.Year,
+                        singleMovieData.Plot
+                      )
+                    }
+                  >
+                    Watchlist
+                  </button>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
             <div className="middle-section">{singleMovieData.Plot}</div>
