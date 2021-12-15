@@ -33,11 +33,14 @@ function SavedList() {
             {user.savedWatchList.map((watchlist) => (
               <div className="coach-row-2">
                 <div className="coach-profile-col-2">
-                  <img src={DashboardImage} alt="" />
+                  <img src={watchlist.poster} alt="" />
                 </div>
                 <div className="coach-description-col">
                   <ul>
-                    <li>Sport :{watchlist.title}</li>
+                    <li> {watchlist.title}</li>
+                    <li>{watchlist.releasedYear}</li>
+
+                    <li>{watchlist.resultType}</li>
                   </ul>
                 </div>
               </div>
