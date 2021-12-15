@@ -174,7 +174,7 @@ const FilterWatchList = () => {
         )}
       </div> */}
 
-      <div>
+      <div className="search-results-container">
         {searchBarData.length ? (
           <ShowList
             searchBarData={searchBarData}

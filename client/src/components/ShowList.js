@@ -95,8 +95,25 @@ const ShowList = (props) => {
 
           {props.searchBarData.map((movie) => (
             <div key={movie.imdbID} className="data-row">
-              {props.selectedMovieType !== "any" &&
-              props.selectedMovieType === movie.Type ? (
+              {props.selectedMovieType === "any" ? (
+                <div className="crypto-name">
+                  <div className="img-section">
+                    <img src={movie.Poster} alt="image" />
+                  </div>
+                  <div className="name-section">
+                    <div className="title">{movie.Title}</div>
+
+                    <div className="released-year">{movie.Year}</div>
+                    <button
+                      className="btn-view"
+                      onClick={() => handleClick(movie.imdbID)}
+                    >
+                      VIEW
+                    </button>
+                  </div>
+                </div>
+              ) : props.selectedMovieType !== "any" &&
+                props.selectedMovieType === movie.Type ? (
                 <div className="crypto-name">
                   <div className="img-section">
                     <img src={movie.Poster} alt="image" />
@@ -116,6 +133,27 @@ const ShowList = (props) => {
               ) : (
                 ""
               )}
+              {/* {props.selectedMovieType !== "any" &&
+              props.selectedMovieType === movie.Type ? (
+                <div className="crypto-name">
+                  <div className="img-section">
+                    <img src={movie.Poster} alt="image" />
+                  </div>
+                  <div className="name-section">
+                    <div className="title">{movie.Title}</div>
+
+                    <div className="released-year">{movie.Year}</div>
+                    <button
+                      className="btn-view"
+                      onClick={() => handleClick(movie.imdbID)}
+                    >
+                      VIEW/SAVE
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )} */}
             </div>
           ))}
         </div>

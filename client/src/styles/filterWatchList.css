@@ -1,38 +1,45 @@
-.display-main {
+/* .display-main {
   background-color: #0096ff;
   width: 1300px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border: 2px solid gold;
-}
+} */
 
-.main {
-  /* background-color: red; */
+/* .main {
   width: 500px;
   height: 80vh;
   overflow: scroll;
-  /* display: flex;
-  flex-direction: column; */
-  /* border: 2px solid orange; */
+
   float: left;
 }
 .main-right {
   display: flex;
-  border: 3px solid blueviolet;
-}
+  border: 3px solid red;
+} */
 
 .search-container {
   display: flex;
   justify-content: space-around;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: black;
+  color: white;
 }
+
 .search-input {
   font-size: 20px;
+  padding-top: 10px;
+  width: 270px;
 }
 .input-btn {
   background-color: red;
   font-size: 20px;
   cursor: pointer;
+  padding-top: 10px;
+  width: 100px;
+  font-weight: bold;
 }
 
 .searchBarData-container {
@@ -124,6 +131,9 @@ img {
 
 .radio-container {
   display: flex;
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
 }
 .field {
   cursor: pointer;

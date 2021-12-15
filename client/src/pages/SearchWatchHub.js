@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FilterWatchList from "../components/SearchWatchList/FilterWatchList";
 import AllWatchList from "../components/SearchWatchList/AllWatchList";
 import SingleWatchDetail from "../components/SearchWatchList/SingleWatchDetail";
-import "../styles/searchWatchHub.css";
+// import "../styles/searchWatchHub.css";
 
 const SearchWatchHub = () => {
   return (
