@@ -10,6 +10,7 @@ import { faList } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ShowList = (props) => {
+  console.log("######SHOW LIST-->", props);
   const [loading, setLoading] = useState(true);
   const [singleMovieData, setSingleMovieData] = useState([]);
   const [confirmed, setConfirmed] = useState(false);
@@ -98,7 +99,9 @@ const ShowList = (props) => {
 
           {props.searchBarData.map((movie) => (
             <div key={movie.imdbID} className="data-row">
-              {props.selectedMovieType === "any" ? (
+              {props.selectedMovieType === "any" &&
+              movie.Year >= props.minYear &&
+              movie.Year <= props.maxYear ? (
                 <button
                   className="btn-view1"
                   onClick={() => handleClick(movie.imdbID)}
@@ -115,7 +118,9 @@ const ShowList = (props) => {
                   </div>
                 </button>
               ) : props.selectedMovieType !== "any" &&
-                props.selectedMovieType === movie.Type ? (
+                props.selectedMovieType === movie.Type &&
+                movie.Year >= props.minYear &&
+                movie.Year <= props.maxYear ? (
                 <button
                   className="btn-view1"
                   onClick={() => handleClick(movie.imdbID)}

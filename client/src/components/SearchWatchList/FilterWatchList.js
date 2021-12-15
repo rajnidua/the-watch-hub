@@ -5,6 +5,7 @@ import Loader from "react-loader-spinner";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../styles/filterWatchList.css";
+import MultiRangeSlider from "./MultiRangeSlider";
 
 const FilterWatchList = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -12,6 +13,9 @@ const FilterWatchList = () => {
   const [loading, setLoading] = useState(true);
   const [searchBarData, setSearchBarData] = useState([]);
   const [searchResponse, setSearchResponse] = useState([]);
+  const [minYear, setMinYear] = useState(1970);
+  const [maxYear, setMaxYear] = useState(2020);
+
   const [formState, setFormState] = useState([
     { type: "any", checkValue: true, id: 0 },
     { type: "movie", checkValue: false, id: 1 },
@@ -119,10 +123,49 @@ const FilterWatchList = () => {
             placeholder="Search"
             className="search-input"
           />
-          {/*  <button type="submit" className="input-btn">
-            <FontAwesomeIcon icon={faSearch} />
-          </button> */}
         </form>
+        {/*  <div className="multi-range-slider">
+          <MultiRangeSlider
+            min={1970}
+            max={2020}
+            onChange={({ min, max }) =>
+              console.log(`min = ${min}, max = ${max}`)
+            }
+          /> 
+        </div> */}
+        <div className="multi-range-slider">
+          <MultiRangeSlider
+            min={1970}
+            max={2020}
+            onChange={({ min, max }) => {
+              console.log(`min = ${min}, max = ${max}`);
+              setMinYear(min);
+              setMaxYear(max);
+            }}
+          />
+        </div>
+
+        {/* <form>
+          <div>
+            1970
+            <input
+              id="rangeInput"
+              type="range"
+              min="1970"
+              max="2021"
+              oninput="amount.value=rangeInput.value"
+            />
+            2015
+            {/* <input
+              id="amount"
+              type="number"
+              value="100"
+              min="0"
+              max="200"
+              oninput="rangeInput.value=amount.value"
+            /> 
+          </div>
+        </form> */}
         <div className="radio-container">
           <div className="field Any">
             <label for="any">Any</label>
@@ -169,19 +212,13 @@ const FilterWatchList = () => {
         </div>
       </div>
 
-      {/* <div>
-        {searchBarData.length ? (
-          <ShowList searchBarData={searchBarData} />
-        ) : (
-          "Search for a movie to begin"
-        )}
-      </div> */}
-
       <div className="search-results-container">
         {searchBarData.length ? (
           <ShowList
             searchBarData={searchBarData}
             selectedMovieType={filteredMovieType[0].type}
+            minYear={minYear}
+            maxYear={maxYear}
           />
         ) : (
           <div className="static-text">Search for a movie to begin...</div>
