@@ -28,7 +28,6 @@ function SavedList() {
           <div>Loading...</div>
         ) : (
           <div className="coach-columns-2">
-            Finished Loading
             {user.savedWatchList.map((watchlist) => (
               <div className="coach-row-2">
                 <div className="coach-profile-col-2">
@@ -36,7 +35,10 @@ function SavedList() {
                 </div>
                 <div className="coach-description-col">
                   <ul>
-                    <li> {watchlist.title}</li>
+                    <li>
+                      {" "}
+                      <h1>{watchlist.title}</h1>
+                    </li>
                     <li>{watchlist.releasedYear}</li>
 
                     <li>{watchlist.resultType}</li>
