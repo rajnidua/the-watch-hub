@@ -9,12 +9,9 @@ This is a full stack application that uses React and GraphQL.
 
 - [Description](#Description)
 - [Installation](#Installation)
-- [Video Link](#Video)
 - [Screenshot](#Screenshot)
-- [Deployment](#Deployment)
 - [API Integration](#API)
 - [How to Run](#Run)
-- [Testing](#Testing)
 - [Contributing](#Contributing)
 - [Questions](#Questions)
 - [License](#License)
@@ -45,8 +42,6 @@ Then I see list of movies displayed
 When I click Logout
 I am logged out of application
 ```
-
-## Deployed App Link
 
 ## Screenshot
 
@@ -105,14 +100,7 @@ OMDb API: https://www.omdbapi.com
 
 ## Run
 
-On Localhost : npm start
-
-
-
-
-
-
-
+On Localhost : npm run develop
 
 
 ## Contributing
