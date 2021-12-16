@@ -14,6 +14,7 @@ const ShowList = (props) => {
   const [loading, setLoading] = useState(true);
   const [singleMovieData, setSingleMovieData] = useState([]);
   const [confirmed, setConfirmed] = useState(false);
+  const [total, setTotal] = useState(props.searchBarData.length);
   console.log("list from search bar&&&&&&&& ", props);
 
   const [saveState, setSaveState] = useState({
@@ -71,6 +72,7 @@ const ShowList = (props) => {
   };
 
   const handleClick = async (id) => {
+    setConfirmed(true);
     console.log("I am inside handle click");
     console.log(id);
 
@@ -95,7 +97,7 @@ const ShowList = (props) => {
     <div classNAme="display-main">
       <div className="main">
         <div className="SearchBarData-container" id="SearchBarData-container">
-          <div>{props.searchBarData.length} RESULTS</div>
+          <div> RESULTS</div>
 
           {props.searchBarData.map((movie) => (
             <div key={movie.imdbID} className="data-row">
@@ -133,12 +135,6 @@ const ShowList = (props) => {
                       <div className="title">{movie.Title}</div>
 
                       <div className="released-year">{movie.Year}</div>
-                      {/* <button
-                        className="btn-view"
-                        onClick={() => handleClick(movie.imdbID)}
-                      >
-                        VIEW
-                      </button> */}
                     </div>
                   </div>
                 </button>

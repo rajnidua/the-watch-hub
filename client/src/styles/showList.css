@@ -71,6 +71,9 @@
   border: 2px solid white;
   transition: all 0.3s ease;
 }
+.active {
+  background-color: bisque;
+}
 
 .btn-view1:hover {
   background-color: #ffffff;
