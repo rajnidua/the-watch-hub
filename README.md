@@ -49,11 +49,11 @@ I am logged out of application
 
 ## Screenshot
 
-[![Screenshot](./client/src/images/Screenshot2.gif)]
+[![Screenshot](./client/src/images/screenshot2.gif)]
 
 ## Screenshot
 
-[![Screenshot](./client/src/images/Screenshot3.gif)]
+[![Screenshot](./client/src/images/screenshot3.gif)]
 
 ## Installation
 
